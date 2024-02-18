@@ -12,7 +12,7 @@ import Login from './pages/Login/Login.jsx';
 import Register from './pages/Register/Register.jsx';
 import Reservar from './pages/Reservar/Reservar.jsx';
 import UserDetails from './pages/UserDetails/UserDetails.jsx';
-import Calendario from './componentes/calendario.jsx';
+import Calendario from './componentes/Calendario.jsx';
 
 function AppLayout() {
   // Declara isLoggedIn y setIsLoggedIn utilizando useState
