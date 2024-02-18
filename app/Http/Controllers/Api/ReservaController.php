@@ -39,7 +39,7 @@ public function consultarReservas()
 
 
         // Actualiza la disponibilidad del horario
-        Event::where('id', $idHora)->update(['disponible' => false]);
+       
 
         try {
             // Inserta la reserva
@@ -49,6 +49,8 @@ public function consultarReservas()
                 'menu' => $menu,
                 'idCliente' => Auth::id()
             ]);
+
+            Event::where('id', $idHora)->update(['disponible' => false]);
 
             return response()->json(['success' => true, 'message' => 'Reserva insertada con éxito']);
         } catch (Exception $e) {
@@ -64,7 +66,7 @@ public function consultarReservas()
         $menu = $request->menu;
     
         // Actualiza la disponibilidad del horario
-        Event::where('id', $idHora)->update(['disponible' => false]);
+        
     
         try {
             $usuario = $request->email; // Supongamos que el usuario está identificado por su correo electrónico
@@ -81,6 +83,8 @@ public function consultarReservas()
                 'numeroTarjeta' => $numeroTarjeta,
                 'email' => $email
             ]);
+
+            Event::where('id', $idHora)->update(['disponible' => false]);
 
             // Envío del correo electrónico
             Mail::raw($message, function($mail) use ($request, $usuario) {
